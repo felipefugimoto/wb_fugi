@@ -15,15 +15,16 @@ return new class extends Migration
     {
         Schema::create('quem_somos', function (Blueprint $table) {
             $table->id();
+            $table->string('img_banner');
             $table->string('titulo_pagina');
             $table->string('titulo_banner');
             $table->string('titulo_conteudo');
-            $table->string('texto_quem_somos');
+            $table->text('texto_quem_somos');
             $table->string('img');
-            $table->string('missao');
-            $table->string('valor');
-            $table->string('visao');
-            $table->string('texto_secundario');
+            $table->text('missao');
+            $table->text('valor');
+            $table->text('visao');
+            $table->text('texto_secundario');
             $table->timestamps();
         });
     }

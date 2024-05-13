@@ -36,8 +36,8 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Tela da paginas:</h6>
-                        <a class="collapse-item" href="#">Quem Somos</a>
-                        <a class="collapse-item" href="#">Empresa</a>
+                        <a class="collapse-item" href="{{ route('quemsomos.index') }}">Quem Somos</a>
+                        <a class="collapse-item" href="{{ route('empresas.index') }}">Empresa</a>
                         <a class="collapse-item" href="#">Produtos</a>
                         <a class="collapse-item" href="#">Portfolio</a>
                         <a class="collapse-item" href="#">Contato</a>
@@ -209,8 +209,8 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
-                                <img class="/dashbord/img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle"
+                                    src="/dashbord/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -228,10 +228,26 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+
+                                    <a class="dropdown-item" href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();" data-toggle="modal" data-target="#logoutModal">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Logout
+                                    </a>
+                
+                                    {{-- <x-responsive-nav-link :href="route('logout')"
+                                            onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
+                                        {{ __('Log Out') }}
+                                    </x-responsive-nav-link> --}}
+                                </form>
+                                {{-- <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
-                                </a>
+                                </a> --}}
                             </div>
                         </li>
 

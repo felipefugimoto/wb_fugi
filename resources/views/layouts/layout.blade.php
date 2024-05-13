@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Wb Fugi - @yield('title')</title>
 
     <!-- Custom fonts for this template-->
     <link href="/dashbord/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -23,14 +23,19 @@
 </head>
 
 <body id="page-top">
+@auth
+    
 
     <!-- Page Wrapper -->
     <div id="wrapper">
     @include('config.header_desh')
 
+    @yield('conteudo')
+
 
                
     </div>
+    @endauth
 
     <!-- Bootstrap core JavaScript-->
     <script src="/dashbord/vendor/jquery/jquery.min.js"></script>
